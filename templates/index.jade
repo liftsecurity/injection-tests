@@ -1,11 +1,6 @@
 html
   body
     ul
-      li
-        a(href="/marked") marked
-      li
-        a(href="/xss") xss
-      li
-        a(href="/node-xss") node-xss
-      li
-        a(href="/validator") validator
+      each plugin in plugins
+        li
+          a(href="/#{plugin}") #{plugin}
