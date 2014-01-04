@@ -1,0 +1,7 @@
+html
+  body
+    form(action="/node-xss", method="POST")
+      textarea(name="input",rows="10",cols="50")= input
+      input(type="submit")
+
+    p!= sanitized
