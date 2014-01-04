@@ -1,7 +1,7 @@
 var Hapi = null; // Initialized during plugin registration
-var xss = require('xss');
+var textile_js = require('textile-js');
 
-exports.name = "xss";
+exports.name = "textile-js";
 exports.version = "1.0.0";
 
 var internals = {};
@@ -22,15 +22,15 @@ exports.register = function (plugin, options, next) {
         path: __dirname + '/templates'
     });
  
-    plugin.route({ method: 'GET', path: '/xss', handler: function (request, reply) {
-        reply.view("plugin", {marked: "", sanitized: "", name: exports.name});
+    plugin.route({ method: 'GET', path: '/textile-js', handler: function (request, reply) {
+        reply.view('plugin', {marked: "", sanitized: "", name: exports.name});
     }});
 
     plugin.route({
         method: 'POST',
-        path: '/xss',
+        path: '/textile-js',
         handler: function (request, reply) {
-            reply.view("plugin", {input: request.payload.input, sanitized: xss(request.payload.input), name: exports.name});
+            reply.view('plugin', {input: request.payload.input, sanitized: textile_js(request.payload.input), name: exports.name});
     }});
 
     next();

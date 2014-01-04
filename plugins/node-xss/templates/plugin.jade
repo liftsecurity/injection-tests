@@ -1,8 +1,8 @@
 html
   body
     p
-    | Package: <a href="http://npmjs.org/node-xss">node-xss</a>
-    form(action="/node-xss", method="POST")
+    | Package: <a href="http://npmjs.org/#{name}">#{name}</a>
+    form(action="/#{name}", method="POST")
       textarea(name="input",rows="10",cols="50")= input
       input(type="submit")
 

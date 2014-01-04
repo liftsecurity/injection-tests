@@ -23,14 +23,14 @@ exports.register = function (plugin, options, next) {
     });
  
     plugin.route({ method: 'GET', path: '/node-xss', handler: function (request, reply) {
-        reply.view("node-xss", {marked: "", sanitized: ""});
+        reply.view("plugin", {marked: "", sanitized: "", name: exports.name});
     }});
 
     plugin.route({
         method: 'POST',
         path: '/node-xss',
         handler: function (request, reply) {
-            reply.view("node-xss", {input: request.payload.input, sanitized: node_xss(request.payload.input)});
+            reply.view("plugin", {input: request.payload.input, sanitized: node_xss(request.payload.input), name: exports.name});
     }});
 
     next();

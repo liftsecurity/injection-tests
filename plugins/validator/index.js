@@ -23,14 +23,14 @@ exports.register = function (plugin, options, next) {
     });
  
     plugin.route({ method: 'GET', path: '/validator', handler: function (request, reply) {
-        reply.view("validator", {marked: "", sanitized: ""});
+        reply.view("plugin", {marked: "", sanitized: "", name: exports.name});
     }});
 
     plugin.route({
         method: 'POST',
         path: '/validator',
         handler: function (request, reply) {
-            reply.view("validator", {input: request.payload.input, sanitized: validator(request.payload.input).escape()});
+            reply.view("plugin", {input: request.payload.input, sanitized: validator(request.payload.input).escape(), name: exports.name});
     }});
 
     next();

@@ -43,7 +43,7 @@ exports.register = function (plugin, options, next) {
                 console.log(request.query.input);
                 reply(marked(request.query.input));
             } else {
-                reply.view("marked",{marked: "", input:""});
+                reply.view("plugin",{marked: "", input:"", name: exports.name});
             }
         }
     }); 
@@ -58,9 +58,9 @@ exports.register = function (plugin, options, next) {
                 });
             }
             if (request.payload.sanitize == "true") {
-                reply.view("marked", {input: request.payload.input, marked: sanitizer.sanitize(marked(request.payload.input))});
+                reply.view("plugin", {input: request.payload.input, marked: sanitizer.sanitize(marked(request.payload.input)), name: exports.name});
             } else {
-                reply.view("marked", {input: request.payload.input, marked: marked(request.payload.input)});
+                reply.view("plugin", {input: request.payload.input, marked: marked(request.payload.input)});
             }
         }
     });
