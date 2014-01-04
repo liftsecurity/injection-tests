@@ -1,0 +1,9 @@
+html
+  body
+    p
+    | Package: <a href="http://npmjs.org/validator">validator</a>
+    form(action="/validator", method="POST")
+      textarea(name="input",rows="10",cols="50")= input
+      input(type="submit")
+
+    p!= sanitized

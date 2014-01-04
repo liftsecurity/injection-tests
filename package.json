@@ -14,6 +14,7 @@
     "jade": "~1.0.2",
     "sanitizer": "~0.1.1",
     "xss": "0.0.9",
-    "node-xss": "0.0.1"
+    "node-xss": "0.0.1",
+    "node-validator": "~0.1.1"
   }
 }

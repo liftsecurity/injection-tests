@@ -3,6 +3,7 @@ var marked = require('marked');
 var sanitizer = require('sanitizer');
 var xss = require('xss');
 var node_xss = require('node-xss').clean;
+var validator = require('validator').sanitize;
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -61,7 +62,6 @@ server.route({
     method: 'POST',
     path: '/xss',
     handler: function (request, reply) {
-        
         reply.view("xss", {input: request.payload.input, sanitized: xss(request.payload.input)});
 }});
 
@@ -74,8 +74,18 @@ server.route({
     method: 'POST',
     path: '/node-xss',
     handler: function (request, reply) {
-
         reply.view("node-xss", {input: request.payload.input, sanitized: node_xss(request.payload.input)});
+}});
+
+server.route({ method: 'GET', path: '/validator', handler: function (request, reply) {
+    reply.view("validator", {marked: "", sanitized: ""});
+}});
+
+server.route({
+    method: 'POST',
+    path: '/validator',
+    handler: function (request, reply) {
+        reply.view("validator", {input: request.payload.input, sanitized: validator(request.payload.input).escape()});
 }});
 
 
