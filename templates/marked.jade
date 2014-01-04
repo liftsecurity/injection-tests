@@ -1,5 +1,7 @@
 html
   body
+    p
+    | Package: <a href="http://npmjs.org/marked">marked</a>
     form(action="/marked", method="POST")
       textarea(name="input",rows="10",cols="50")= input
       input(type="checkbox", name="unsafe", value="true", checked="true")

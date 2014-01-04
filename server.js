@@ -1,6 +1,7 @@
 var Hapi = require('hapi');
 var marked = require('marked');
 var sanitizer = require('sanitizer');
+var xss = require('xss');
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -34,6 +35,10 @@ server.route({ method: 'GET', path: '/marked', handler: function (request, reply
 	}
 }});
 
+server.route({ method: 'GET', path: '/xss', handler: function (request, reply) {
+    reply.view("xss", {marked: "", sanitized: ""});
+}});
+
 server.route({
 	method: 'POST',
 	path: '/marked',
@@ -48,6 +53,15 @@ server.route({
 		} else {
 			reply.view("marked", {input: request.payload.input, marked: marked(request.payload.input)});
 		}
+}});
+
+
+server.route({
+    method: 'POST',
+    path: '/xss',
+    handler: function (request, reply) {
+        
+        reply.view("xss", {input: request.payload.input, sanitized: xss(request.payload.input)});
 }});
 
 server.start(function () {
