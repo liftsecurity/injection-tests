@@ -1,0 +1,11 @@
+html
+  body
+    form(action="/marked", method="POST")
+      textarea(name="input",rows="10",cols="50")= input
+      input(type="checkbox", name="unsafe", value="true", checked="true")
+      | unsafe
+      input(type="checkbox", name="sanitize", value="true", checked="true") 
+      | sanitize
+      input(type="submit")
+
+    p!= marked
