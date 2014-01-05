@@ -1,7 +1,7 @@
 var Hapi = null; // Initialized during plugin registration
-var textile_js = require('textile-js');
+var bbcode = require('bbcode');
 
-exports.name = "textile-js";
+exports.name = "bbcode";
 exports.version = "1.0.0";
 
 var internals = {};
@@ -23,14 +23,16 @@ exports.register = function (plugin, options, next) {
     });
  
     plugin.route({ method: 'GET', path: '/' + exports.name, handler: function (request, reply) {
-        reply.view('plugin', {marked: "", sanitized: "", name: exports.name});
+        reply.view("plugin", {marked: "", sanitized: "", name: exports.name});
     }});
 
     plugin.route({
         method: 'POST',
         path: '/' + exports.name,
         handler: function (request, reply) {
-            reply.view('plugin', {input: request.payload.input, sanitized: textile_js(request.payload.input), name: exports.name});
+            bbcode.parse(request.payload.input, function (content) {
+                reply.view("plugin", {input: request.payload.input, sanitized: content, name: exports.name});
+            });
     }});
 
     next();

@@ -17,6 +17,7 @@
     "node-xss": "0.0.1",
     "node-validator": "~0.1.1",
     "textile-js": "~0.1.7",
-    "secure-filters": "~1.0.5"
+    "secure-filters": "~1.0.5",
+    "bbcode": "~0.1.4"
   }
 }

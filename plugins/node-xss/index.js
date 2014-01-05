@@ -22,13 +22,13 @@ exports.register = function (plugin, options, next) {
         path: __dirname + '/templates'
     });
  
-    plugin.route({ method: 'GET', path: '/node-xss', handler: function (request, reply) {
+    plugin.route({ method: 'GET', path: '/' + exports.name, handler: function (request, reply) {
         reply.view("plugin", {marked: "", sanitized: "", name: exports.name});
     }});
 
     plugin.route({
         method: 'POST',
-        path: '/node-xss',
+        path: '/' + exports.name,
         handler: function (request, reply) {
             reply.view("plugin", {input: request.payload.input, sanitized: node_xss(request.payload.input), name: exports.name});
     }});

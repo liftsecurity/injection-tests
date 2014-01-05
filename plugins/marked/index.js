@@ -37,7 +37,7 @@ exports.register = function (plugin, options, next) {
  
     plugin.route({
         method: 'GET', 
-        path: '/marked', 
+        path: '/' + exports.name, 
         handler: function (request, reply) { 
             if (request.query.input) {
                 console.log(request.query.input);
@@ -50,7 +50,7 @@ exports.register = function (plugin, options, next) {
 
     plugin.route({
         method: 'POST',
-        path: '/marked',
+        path: '/' + exports.name,
         handler: function (request, reply) {
             if (request.payload.unsafe == "true") {
                 marked.setOptions({
