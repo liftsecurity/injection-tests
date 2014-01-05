@@ -20,6 +20,7 @@
     "secure-filters": "~1.0.5",
     "bbcode": "~0.1.4",
     "wiky.js": "0.0.1",
-    "bboxed": "~0.2.0"
+    "bboxed": "~0.2.0",
+    "mehdown": "~1.4.0"
   }
 }
