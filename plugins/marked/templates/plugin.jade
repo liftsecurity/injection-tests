@@ -4,10 +4,11 @@ html
     | Package: <a href="http://npmjs.org/#{name}">#{name}</a>
     form(action="/#{name}", method="POST")
       textarea(name="input",rows="10",cols="50")= input
-      input(type="checkbox", name="unsafe", value="true", checked="true")
+      input(type="checkbox", name="unsafe", value="true")
       | unsafe
-      input(type="checkbox", name="sanitize", value="true", checked="true") 
+      input(type="checkbox", name="sanitize", value="true") 
       | sanitize
       input(type="submit")
 
+    h3 rendered
     p!= marked
