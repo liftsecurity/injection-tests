@@ -1,4 +1,5 @@
 var Hapi = null; // Initialized during plugin registration
+var marked = require('marked');
 var mehdown = require('mehdown');
 
 exports.name = "mehdown";
@@ -30,7 +31,7 @@ exports.register = function (plugin, options, next) {
         method: 'POST',
         path: '/' + exports.name,
         handler: function (request, reply) {
-            reply.view("plugin", {input: request.payload.input, sanitized: mehdown.parse(request.payload.input), name: exports.name});
+            reply.view("plugin", {input: request.payload.input, sanitized: mehdown.parse(marked(request.payload.input)), name: exports.name});
     }});
 
     next();
