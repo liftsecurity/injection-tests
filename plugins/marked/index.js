@@ -39,6 +39,9 @@ exports.register = function (plugin, options, next) {
         method: 'GET', 
         path: '/' + exports.name, 
         handler: function (request, reply) { 
+            marked.setOptions({
+                sanitize: false
+            });
             if (request.query.input) {
                 console.log(request.query.input);
                 reply(marked(request.query.input));
@@ -55,6 +58,10 @@ exports.register = function (plugin, options, next) {
             if (request.payload.unsafe == "true") {
                 marked.setOptions({
                     sanitize: false
+                });
+            } else {
+                marked.setOptions({
+                    sanitize: true
                 });
             }
             if (request.payload.sanitize == "true") {
