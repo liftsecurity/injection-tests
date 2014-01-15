@@ -12,7 +12,7 @@
   "dependencies": {
     "marked": "~0.3.0",
     "hapi": "~1.20.0",
-    "jade": "~1.0.2",
+    "jade": "~1.1.4",
     "sanitizer": "~0.1.1",
     "xss": "0.0.9",
     "node-xss": "0.0.1",
