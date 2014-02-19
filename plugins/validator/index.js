@@ -1,5 +1,5 @@
 var Hapi = null; // Initialized during plugin registration
-var validator = require('validator').sanitize;
+var validator = require('node-validator').sanitize;
 
 exports.name = "validator";
 exports.version = "1.0.0";
