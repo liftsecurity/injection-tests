@@ -1,10 +1,11 @@
 var Hapi = require('hapi');
 var fs = require('fs');
+var jade = require('jade');
 var plugins = [];
 
 var server = new Hapi.Server('0.0.0.0', 8000, { 
 	views: {
-        engines: { jade: 'jade' },
+        engines: { jade: jade },
         path: __dirname + '/templates'
     }
 });

@@ -1,5 +1,7 @@
 var Hapi = null; // Initialized during plugin registration
 var node_xss = require('node-xss').clean;
+var jade = require('jade');
+var Hoek = require('hoek');
 
 exports.name = "node-xss";
 exports.version = "1.0.0";
@@ -14,11 +16,10 @@ internals.defaults = {
 
 exports.register = function (plugin, options, next) {
     internals.setHapi(plugin.hapi);
-    var Utils = plugin.hapi.utils
-    var settings = Utils.applyToDefaults(internals.defaults, options);
+    var settings = Hoek.applyToDefaults(internals.defaults, options);
 
     plugin.views({
-        engines: { jade: 'jade' },
+        engines: { jade: jade },
         path: __dirname + '/templates'
     });
  
