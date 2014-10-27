@@ -3,7 +3,7 @@ var fs = require('fs');
 var jade = require('jade');
 var plugins = [];
 
-var server = new Hapi.Server('0.0.0.0', 8000, { 
+var server = new Hapi.Server('0.0.0.0', 4000, { 
 	views: {
         engines: { jade: jade },
         path: __dirname + '/templates'
@@ -25,5 +25,5 @@ fs.readdirSync(__dirname + '/plugins').forEach(function (filename) {
 
 
 server.start(function () {
-    console.log("Go to http://localhost:8000/");
+    console.log("Go to http://localhost:4000/");
 })
