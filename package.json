@@ -12,21 +12,21 @@
   "dependencies": {
     "bbcode": "~0.1.4",
     "bboxed": "~0.2.0",
-    "hapi": "^6.2.2",
-    "hoek": "^2.10.0",
-    "jade": "^1.5.0",
+    "hapi": "^6.11.1",
+    "hoek": "^2.11.0",
+    "jade": "^1.9.1",
     "markdown": "~0.5.0",
     "markdown-js": "0.0.3",
     "marked": "~0.3.0",
-    "mehdown": "^1.7.0",
-    "node-validator": "^0.1.11",
+    "mehdown": "^1.8.1",
+    "node-validator": "^0.1.12",
     "node-xss": "0.0.1",
-    "remarkable": "^1.4.2",
+    "remarkable": "^1.6.0",
     "sanitizer": "^0.1.2",
     "secure-filters": "~1.0.5",
     "showdown": "~0.3.1",
-    "textile-js": "^0.1.9",
+    "textile-js": "^0.1.10",
     "wiky.js": "0.0.1",
-    "xss": "^0.1.10"
+    "xss": "^0.1.17"
   }
 }
