@@ -1,9 +1,9 @@
 var Hapi = null; // Initialized during plugin registration
-var validator = require('node-validator');
+var marky = require('marky-markdown');
 var jade = require('jade');
 var Hoek = require('hoek');
 
-exports.name = "validator";
+exports.name = "marky-markdown";
 exports.version = "1.0.0";
 
 var internals = {};
@@ -31,7 +31,7 @@ exports.register = function (plugin, options, next) {
         method: 'POST',
         path: '/' + exports.name,
         handler: function (request, reply) {
-            reply.view("plugin", {input: request.payload.input, sanitized: validator(request.payload.input).escape(), name: exports.name});
+            reply.view("plugin", {input: request.payload.input, sanitized: marky(request.payload.input).html(), name: exports.name});
     }});
 
     next();
